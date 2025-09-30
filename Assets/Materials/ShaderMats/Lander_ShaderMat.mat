@@ -13,7 +13,6 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - GLOW_ON
-  - HOLOGRAM_ON
   - HSV_ON
   - OVERLAY_ON
   - POSTERIZE_ON

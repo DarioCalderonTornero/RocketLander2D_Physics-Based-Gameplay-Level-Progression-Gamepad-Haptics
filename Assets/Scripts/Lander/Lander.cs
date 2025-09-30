@@ -303,6 +303,14 @@ public class Lander : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay2D(Collider2D collider2D)
+    {
+        if (collider2D.TryGetComponent(out IInteractableStay interactable))
+        {
+            interactable.Stay(this);
+        }
+    }
+
     private void SetState(State state)
     {
         this.state = state;
