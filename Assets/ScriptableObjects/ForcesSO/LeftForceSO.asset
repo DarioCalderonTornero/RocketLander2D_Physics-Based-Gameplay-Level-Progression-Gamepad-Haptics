@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: LeftForceSO
   m_EditorClassIdentifier: 
   forceType: 0
-  magnitude: 20
+  magnitude: 5
   duration: 0
   aplplyEveryFrame: 1
   direction: {x: 0, y: 1}
+  forceDirection: 1
   centerPoint: {fileID: 0}
   isAttractive: 1
   radius: 5

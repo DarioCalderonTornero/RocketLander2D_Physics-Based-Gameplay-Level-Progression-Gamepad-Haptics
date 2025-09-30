@@ -12,6 +12,14 @@ public class ForcesSO : ScriptableObject
         Torque
     }
 
+    public enum ForceDirection
+    {
+        up,
+        down,
+        left,
+        right
+    }
+
     [Header("General")]
     public ForceType forceType; 
     public float magnitude = 1f; // Strength of the force
@@ -20,6 +28,7 @@ public class ForcesSO : ScriptableObject
 
     [Header("Direction")]
     public Vector2 direction = Vector2.up;
+    public ForceDirection forceDirection;
 
     [Header("Radial")]
     public Transform centerPoint; // Center point for radial forces

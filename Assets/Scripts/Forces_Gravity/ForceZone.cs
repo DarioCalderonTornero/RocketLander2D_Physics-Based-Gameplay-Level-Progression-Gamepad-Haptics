@@ -9,15 +9,28 @@ public class ForceZone : MonoBehaviour, IInteractableStay
         if (forcesSO == null)
             return;
 
-        Debug.Log("Entering Left Force Zone");
+        Vector2 forceDirection = Vector2.zero;
 
         if (forcesSO.forceType == ForcesSO.ForceType.Directional)
         {
-            Vector2 forceDirection = Vector2.left.normalized;
+            switch(forcesSO.forceDirection)
+            {
+                case ForcesSO.ForceDirection.up:
+                    forceDirection = Vector2.up * forcesSO.magnitude;
+                    break;
+                case ForcesSO.ForceDirection.down:
+                    forceDirection = Vector2.down * forcesSO.magnitude;
+                    break;
+                case ForcesSO.ForceDirection.left:
+                    forceDirection = Vector2.left * forcesSO.magnitude;
+                    break;
+                case ForcesSO.ForceDirection.right:
+                    forceDirection = Vector2.right * forcesSO.magnitude;
+                    break;
+            }
 
-            Vector2 force = forceDirection * forcesSO.magnitude;
 
-            lander.GetComponent<Rigidbody2D>().AddForce(force, ForceMode2D.Force);  
+            lander.GetComponent<Rigidbody2D>().AddForce(forceDirection, ForceMode2D.Force);  
         }
     }
 }
