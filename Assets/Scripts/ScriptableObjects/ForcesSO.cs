@@ -31,7 +31,6 @@ public class ForcesSO : ScriptableObject
 
     [Header("Radial")]
     public bool isAttractive = true; // True for attraction, false for repulsion
-    public float radius = 5f;
 
     [Header("Gravity")]
     public float gravityScaleOverride = 0.7f; 

@@ -5,9 +5,16 @@ using static ForcesSO;
 public class ForceZone : MonoBehaviour, IInteractableStay
 {
     [SerializeField] private ForcesSO forcesSO;
-    [SerializeField] private float magnitude;
+
+    [Header("Directional Force")]
+    [SerializeField] private float directionMagnitude;
+
+    [Header("Radial Force")]
+    [SerializeField] private float radialMagnitude;
     [SerializeField] private Transform centerPoint;
-    [SerializeField] private AnimationCurve falloff;
+    [SerializeField] private AnimationCurve radialFallOff;
+    [SerializeField] private float radialRadius = 5f;
+
 
     public void Stay(Lander lander)
     {
@@ -49,14 +56,14 @@ public class ForceZone : MonoBehaviour, IInteractableStay
         Vector2 direction = rb.position - (Vector2)centerPoint.position;
         float distance = direction.magnitude;
 
-        if (distance > forcesSO.radius)
+        if (distance > radialRadius)
             return;
 
-        float fallOfFactor = falloff.Evaluate(distance / forcesSO.radius);
+        float fallOfFactor = radialFallOff.Evaluate(distance / radialRadius);
         //fallOfFactor = Mathf.Max(fallOfFactor, 0.05f);
         direction.Normalize();
 
-        Vector2 force = direction * magnitude * fallOfFactor;
+        Vector2 force = direction * radialMagnitude * fallOfFactor;
         if (forcesSO.isAttractive) force = -force;
 
         rb.AddForce(force, ForceMode2D.Force);
@@ -67,7 +74,7 @@ public class ForceZone : MonoBehaviour, IInteractableStay
         if (centerPoint != null)
         {
             Gizmos.color = Color.cyan;
-            Gizmos.DrawWireSphere(centerPoint.position, forcesSO.radius);
+            Gizmos.DrawWireSphere(centerPoint.position, radialRadius);
         }
     }
 
@@ -94,16 +101,16 @@ public class ForceZone : MonoBehaviour, IInteractableStay
         switch (forcesSO.forceDirection)
         {
             case ForcesSO.ForceDirection.up:
-                forceDirection = Vector2.up * magnitude;
+                forceDirection = Vector2.up * directionMagnitude;
                 break;
             case ForcesSO.ForceDirection.down:
-                forceDirection = Vector2.down * magnitude;
+                forceDirection = Vector2.down * directionMagnitude;
                 break;
             case ForcesSO.ForceDirection.left:
-                forceDirection = Vector2.left * magnitude;
+                forceDirection = Vector2.left * directionMagnitude;
                 break;
             case ForcesSO.ForceDirection.right:
-                forceDirection = Vector2.right * magnitude;
+                forceDirection = Vector2.right * directionMagnitude;
                 break;
         }
 
