@@ -22,19 +22,16 @@ public class ForcesSO : ScriptableObject
 
     [Header("General")]
     public ForceType forceType; 
-    public float magnitude = 1f; // Strength of the force
     public float duration = 0f; // Duration in seconds, 0 means infinite
-    public bool aplplyEveryFrame = true; // If false, apply only once when entering the zone
+    public bool applyEveryFrame = true; // If false, apply only once when entering the zone
 
     [Header("Direction")]
     public Vector2 direction = Vector2.up;
     public ForceDirection forceDirection;
 
     [Header("Radial")]
-    public Transform centerPoint; // Center point for radial forces
     public bool isAttractive = true; // True for attraction, false for repulsion
     public float radius = 5f;
-    public AnimationCurve falloff;
 
     [Header("Gravity")]
     public float gravityScaleOverride = 0.7f; 

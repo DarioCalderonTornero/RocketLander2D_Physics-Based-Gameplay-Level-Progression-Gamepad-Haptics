@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cdad81e641d390540b5f139c916ab384, type: 3}
-  m_Name: LeftForceSO
+  m_Name: DownForceSO
   m_EditorClassIdentifier: 
   forceType: 0
   magnitude: 5
   duration: 0
-  applyEveryFrame: 1
+  aplplyEveryFrame: 1
   direction: {x: 0, y: 1}
-  forceDirection: 2
+  forceDirection: 1
   centerPoint: {fileID: 0}
   isAttractive: 1
   radius: 5

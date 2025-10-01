@@ -10,23 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cdad81e641d390540b5f139c916ab384, type: 3}
-  m_Name: LeftForceSO
+  m_Name: RadialForce
   m_EditorClassIdentifier: 
-  forceType: 0
-  magnitude: 5
+  forceType: 1
   duration: 0
   applyEveryFrame: 1
   direction: {x: 0, y: 1}
-  forceDirection: 2
-  centerPoint: {fileID: 0}
+  forceDirection: 0
   isAttractive: 1
   radius: 5
-  falloff:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   gravityScaleOverride: 1
   impulseDirection: {x: 0, y: 1}
   torqueAmount: 100

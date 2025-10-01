@@ -169,6 +169,7 @@ public class Lander : MonoBehaviour
             return;
         }
 
+        // Ignore collisions if not playing
         if (!collision2D.gameObject.TryGetComponent(out LandingPad landingPad))
         {
             Debug.Log("Crashed!");
@@ -195,6 +196,8 @@ public class Lander : MonoBehaviour
         float softLandingVelocityMagnitude = 4f;
         float relativeVelocityMagnitude = collision2D.relativeVelocity.magnitude;
 
+        // Check landing speed
+
         if (relativeVelocityMagnitude > softLandingVelocityMagnitude)
         {
             Debug.Log("Landed too fast!");
@@ -218,6 +221,7 @@ public class Lander : MonoBehaviour
             return;
         }
 
+        // Check landing angle
         float dotVector = Vector2.Dot(Vector2.up, transform.up);
         float softAngle = .90f;
 
@@ -243,9 +247,7 @@ public class Lander : MonoBehaviour
             SetState(State.GameOver);
             return;
         }
-
-        Debug.Log("Soft Landing!");
-
+        // Successful landing
         float maxScoreAmountAngleLanding = 100f;
         float scoreDotVectorMultiplier = 10f;
         float landingAngleScore = maxScoreAmountAngleLanding - Mathf.Abs(dotVector - 1) * scoreDotVectorMultiplier * maxScoreAmountAngleLanding;
@@ -274,7 +276,7 @@ public class Lander : MonoBehaviour
         SetState(State.GameOver);
     }
 
-
+    // ---------------- PICKUP LOGIC ----------------
     public void GrabFuelPickUp(FuelPickUp fuelPickUp)
     {
         float addFuelAmount = 10f;
@@ -303,6 +305,7 @@ public class Lander : MonoBehaviour
         }
     }
 
+    
     private void OnTriggerStay2D(Collider2D collider2D)
     {
         if (collider2D.TryGetComponent(out IInteractableStay interactable))
@@ -311,6 +314,7 @@ public class Lander : MonoBehaviour
         }
     }
 
+    
     private void SetState(State state)
     {
         this.state = state;
@@ -324,6 +328,7 @@ public class Lander : MonoBehaviour
         CheckLowFuel();
     }
 
+    // Check for low fuel and trigger events
     private void CheckLowFuel()
     {
         if (!hasTriggeredLowFuel && GetFuelNormalized() < fuelLowAmount)
@@ -339,6 +344,7 @@ public class Lander : MonoBehaviour
         }
     }
 
+    // -------------- GETTERS --------------
     public float GetFuel() => fuelAmount;
     public float GetFuelNormalized() => fuelAmount / fuelAmountMax;
     public float GetSpeedX() => landerRigidBody2D.linearVelocityX * 3f;
