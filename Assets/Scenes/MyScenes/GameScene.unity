@@ -3587,11 +3587,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7377930188118140064, guid: e535a92c7e23dab4c977a1436e7baff7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.72
+      value: -17.75
       objectReference: {fileID: 0}
     - target: {fileID: 7377930188118140064, guid: e535a92c7e23dab4c977a1436e7baff7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.18
+      value: 3.23
       objectReference: {fileID: 0}
     - target: {fileID: 7377930188118140064, guid: e535a92c7e23dab4c977a1436e7baff7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4685,6 +4685,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2546846884911126122, guid: 705449dc6d737914ea1dabd53f6d450b, type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2546846884911126122, guid: 705449dc6d737914ea1dabd53f6d450b, type: 3}
+      propertyPath: forcesSO
+      value: 
+      objectReference: {fileID: 11400000, guid: ff62f0b1ffc21ba42aec2a52b4c9b976, type: 2}
+    - target: {fileID: 2546846884911126122, guid: 705449dc6d737914ea1dabd53f6d450b, type: 3}
+      propertyPath: lifeTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2546846884911126122, guid: 705449dc6d737914ea1dabd53f6d450b, type: 3}
+      propertyPath: arrowForceSprite
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4177891535308097196, guid: 705449dc6d737914ea1dabd53f6d450b, type: 3}
       propertyPath: m_Name
       value: ForceZoneUpTrigger

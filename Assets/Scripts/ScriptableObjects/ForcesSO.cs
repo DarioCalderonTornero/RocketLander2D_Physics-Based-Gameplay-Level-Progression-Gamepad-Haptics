@@ -42,6 +42,9 @@ public class ForcesSO : ScriptableObject
     public float torqueAmount = 100f; 
     public int torqueDirection = 1; // 1 for clockwise, -1 for counter-clockwise
 
+    [Header("Visuals")]
+    public GameObject visualGameObject;
+
     /*
     [Header("Extras")]
     public int priority = 0;          

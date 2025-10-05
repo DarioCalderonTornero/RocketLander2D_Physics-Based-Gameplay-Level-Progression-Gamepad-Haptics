@@ -222,10 +222,10 @@ Material:
     - _WarpScale: 0.5
     - _WarpSpeed: 8
     - _WarpStrength: 0.025
-    - _WaveAmount: 5
-    - _WaveSpeed: 7
-    - _WaveStrength: 10
-    - _WaveX: 0
+    - _WaveAmount: 25
+    - _WaveSpeed: 25
+    - _WaveStrength: 25
+    - _WaveX: 1
     - _WaveY: 1
     - _ZTestMode: 4
     - _ZWrite: 0

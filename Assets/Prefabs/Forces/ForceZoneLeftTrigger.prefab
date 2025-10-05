@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5921263901580174027}
   - component: {fileID: 2072753136374383404}
   - component: {fileID: 6253218097702376787}
+  - component: {fileID: -883453435833097431}
   m_Layer: 0
   m_Name: ForceZoneLeftTrigger
   m_TagString: Untagged
@@ -92,4 +93,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forcesSO: {fileID: 11400000, guid: 44f3d8162a354374cbb9ce27224b6dd5, type: 2}
-  magnitude: 5
+  directionMagnitude: 0
+  radialMagnitude: 0
+  centerPoint: {fileID: 0}
+  radialFallOff:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  radialRadius: 5
+--- !u!114 &-883453435833097431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4177891535308097196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ab1a514978fe5d40a930ca30641da76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

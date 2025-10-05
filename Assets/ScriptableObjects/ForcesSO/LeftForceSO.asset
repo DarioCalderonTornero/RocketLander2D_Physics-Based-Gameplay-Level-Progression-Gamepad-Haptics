@@ -13,21 +13,13 @@ MonoBehaviour:
   m_Name: LeftForceSO
   m_EditorClassIdentifier: 
   forceType: 0
-  magnitude: 5
   duration: 0
   applyEveryFrame: 1
   direction: {x: 0, y: 1}
   forceDirection: 2
-  centerPoint: {fileID: 0}
   isAttractive: 1
-  radius: 5
-  falloff:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   gravityScaleOverride: 1
   impulseDirection: {x: 0, y: 1}
   torqueAmount: 100
   torqueDirection: 1
+  visualGameObject: {fileID: 5088497658707221904, guid: ad58dc3d602974442996c74ad69d6bb3, type: 3}
