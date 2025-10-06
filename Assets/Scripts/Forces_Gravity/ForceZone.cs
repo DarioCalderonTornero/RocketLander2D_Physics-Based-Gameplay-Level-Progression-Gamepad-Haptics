@@ -91,7 +91,7 @@ public class ForceZone : MonoBehaviour, IInteractableStay
 
     private void ApplyTorque(Rigidbody2D rb)
     {
-        throw new NotImplementedException();
+        //Quaternion forceRotation = forcesSO.torqueDirection;
     }
 
     private void ApplyDirection(Rigidbody2D rb)

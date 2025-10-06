@@ -270,6 +270,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 235479017}
   m_CullTransparentMesh: 1
+--- !u!1 &250728441
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 250728442}
+  m_Layer: 0
+  m_Name: SpawnPoint_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &250728442
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250728441}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.88, y: -1.32, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 929575800}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &263744126
 GameObject:
   m_ObjectHideFlags: 0
@@ -2744,6 +2775,42 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 879696801}
   m_CullTransparentMesh: 1
+--- !u!4 &929575800 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5921263901580174027, guid: 705449dc6d737914ea1dabd53f6d450b, type: 3}
+  m_PrefabInstance: {fileID: 1727990361}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &936768938
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 936768939}
+  m_Layer: 0
+  m_Name: SpawnPoint_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &936768939
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936768938}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.03, y: -0.98, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 929575800}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &958963591
 GameObject:
   m_ObjectHideFlags: 0
@@ -4463,6 +4530,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ControlPath: <Keyboard>/upArrow
+--- !u!1 &1598674681
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1598674682}
+  m_Layer: 0
+  m_Name: SpawnPoint_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1598674682
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1598674681}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.25, y: -0.82, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 929575800}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1600268024
 GameObject:
   m_ObjectHideFlags: 0
@@ -4690,6 +4788,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2546846884911126122, guid: 705449dc6d737914ea1dabd53f6d450b, type: 3}
+      propertyPath: forces
+      value: 
+      objectReference: {fileID: 11400000, guid: ff62f0b1ffc21ba42aec2a52b4c9b976, type: 2}
+    - target: {fileID: 2546846884911126122, guid: 705449dc6d737914ea1dabd53f6d450b, type: 3}
       propertyPath: forcesSO
       value: 
       objectReference: {fileID: 11400000, guid: ff62f0b1ffc21ba42aec2a52b4c9b976, type: 2}
@@ -4698,9 +4800,49 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2546846884911126122, guid: 705449dc6d737914ea1dabd53f6d450b, type: 3}
+      propertyPath: arrowSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2546846884911126122, guid: 705449dc6d737914ea1dabd53f6d450b, type: 3}
+      propertyPath: arrowPrefab
+      value: 
+      objectReference: {fileID: 5088497658707221904, guid: ad58dc3d602974442996c74ad69d6bb3, type: 3}
+    - target: {fileID: 2546846884911126122, guid: 705449dc6d737914ea1dabd53f6d450b, type: 3}
+      propertyPath: visualPrefab
+      value: 
+      objectReference: {fileID: 5088497658707221904, guid: ad58dc3d602974442996c74ad69d6bb3, type: 3}
+    - target: {fileID: 2546846884911126122, guid: 705449dc6d737914ea1dabd53f6d450b, type: 3}
+      propertyPath: visualsParent
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2546846884911126122, guid: 705449dc6d737914ea1dabd53f6d450b, type: 3}
+      propertyPath: deltaPerTick.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2546846884911126122, guid: 705449dc6d737914ea1dabd53f6d450b, type: 3}
+      propertyPath: deltaPerTick.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2546846884911126122, guid: 705449dc6d737914ea1dabd53f6d450b, type: 3}
       propertyPath: arrowForceSprite
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2546846884911126122, guid: 705449dc6d737914ea1dabd53f6d450b, type: 3}
+      propertyPath: spawnPoints.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2546846884911126122, guid: 705449dc6d737914ea1dabd53f6d450b, type: 3}
+      propertyPath: 'spawnPoints.Array.data[0]'
+      value: 
+      objectReference: {fileID: 936768939}
+    - target: {fileID: 2546846884911126122, guid: 705449dc6d737914ea1dabd53f6d450b, type: 3}
+      propertyPath: 'spawnPoints.Array.data[1]'
+      value: 
+      objectReference: {fileID: 250728442}
+    - target: {fileID: 2546846884911126122, guid: 705449dc6d737914ea1dabd53f6d450b, type: 3}
+      propertyPath: 'spawnPoints.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1598674682}
     - target: {fileID: 4177891535308097196, guid: 705449dc6d737914ea1dabd53f6d450b, type: 3}
       propertyPath: m_Name
       value: ForceZoneUpTrigger
@@ -4755,7 +4897,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5921263901580174027, guid: 705449dc6d737914ea1dabd53f6d450b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 936768939}
+    - targetCorrespondingSourceObject: {fileID: 5921263901580174027, guid: 705449dc6d737914ea1dabd53f6d450b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 250728442}
+    - targetCorrespondingSourceObject: {fileID: 5921263901580174027, guid: 705449dc6d737914ea1dabd53f6d450b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1598674682}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 705449dc6d737914ea1dabd53f6d450b, type: 3}
 --- !u!1 &1735133332
