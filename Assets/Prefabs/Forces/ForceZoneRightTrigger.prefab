@@ -115,3 +115,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ab1a514978fe5d40a930ca30641da76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  arrowPrefab: {fileID: 5088497658707221904, guid: ad58dc3d602974442996c74ad69d6bb3, type: 3}
+  forcesSO: {fileID: 11400000, guid: a5593088f0b679547be7aece782d41f2, type: 2}
+  spawnPoint: {fileID: 0}
+  arrowSpeed: 0
+  arrowLifetime: 2
+  spawnInterval: 0.7

@@ -115,14 +115,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ab1a514978fe5d40a930ca30641da76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forces: {fileID: 11400000, guid: ff62f0b1ffc21ba42aec2a52b4c9b976, type: 2}
-  visualPrefab: {fileID: 5088497658707221904, guid: ad58dc3d602974442996c74ad69d6bb3, type: 3}
-  spawnPoints: []
-  minCount: 3
-  maxCount: 4
-  intervalMin: 1.5
-  intervalMax: 3
-  visualLifetime: 2
-  visualsParent: {fileID: 0}
-  runOnEnable: 1
-  onlyIfDirectional: 1
+  arrowPrefab: {fileID: 5088497658707221904, guid: ad58dc3d602974442996c74ad69d6bb3, type: 3}
+  forcesSO: {fileID: 11400000, guid: 07178bc611a964a478005cbff418ef21, type: 2}
+  spawnPoint: {fileID: 0}
+  arrowSpeed: 0
+  arrowLifetime: 2
+  spawnInterval: 0.7

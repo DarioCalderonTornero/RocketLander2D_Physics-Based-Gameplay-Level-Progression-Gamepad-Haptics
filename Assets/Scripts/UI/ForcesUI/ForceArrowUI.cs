@@ -9,11 +9,13 @@ public class ForceArrowUI : MonoBehaviour
     [SerializeField] private ForcesSO forcesSO;
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private float arrowSpeed;
-    [SerializeField] private float arrowLifetime = 2f; // Tiempo que vive cada flecha
+    [SerializeField] private float arrowLifetime = 2f;
 
-    private float spawnInterval = 0.7f; // Intervalo entre flechas (ajusta para más/menos flechas simultáneas)
+    [SerializeField] private float spawnInterval = 0.7f; 
     private float spawnTimer;
 
+
+    // Spawns an arrow based on the force direction
     private void SpawnArrow()
     {
         Vector3 direction = Vector3.up;
@@ -41,14 +43,17 @@ public class ForceArrowUI : MonoBehaviour
 
         GameObject arrow = Instantiate(arrowPrefab, spawnPoint.position, rotation, transform);
 
+        arrow.transform.localScale = Vector3.one;
+
         ArrowForce mover = arrow.GetComponent<ArrowForce>();
         if (mover != null)
         {
             mover.Init(direction, arrowSpeed);
         }
 
-        Destroy(arrow, arrowLifetime); // Destruye la flecha tras X segundos
+        Destroy(arrow, arrowLifetime);
     }
+
 
     private void Update()
     {
