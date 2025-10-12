@@ -14,6 +14,7 @@ public class ForcesSO : ScriptableObject
 
     public enum ForceDirection
     {
+        None,
         up,
         down,
         left,

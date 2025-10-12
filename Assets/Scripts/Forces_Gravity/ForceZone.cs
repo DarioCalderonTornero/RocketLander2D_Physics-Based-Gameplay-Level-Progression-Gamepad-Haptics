@@ -14,6 +14,22 @@ public class ForceZone : MonoBehaviour, IInteractableStay
     [SerializeField] private Transform centerPoint;
     [SerializeField] private AnimationCurve radialFallOff;
     [SerializeField] private float radialRadius = 5f;
+    [SerializeField] private float gravity;
+
+    [Header("Radial Spring-Damper")]
+    [SerializeField] private float springK = 30f;       // rigidez (empuje hacia el centro)
+    [SerializeField] private float dampingRadial = 7f;  // amortiguación en la componente radial
+    [SerializeField] private float dampingTangential = 3f; // amortiguación tangencial (evita órbitas)
+    [SerializeField] private float maxForce = 60f;      // clamp para suavidad
+
+    [Header("Capture")]
+    [SerializeField] private float captureRadius = 0.15f;   // zona de “enganche” final
+    [SerializeField] private float captureDamping = 12f;    // extra damping cerca del centro
+
+    [Header("Anti-Gravity (opcional)")]
+    [SerializeField] private bool cancelGlobalGravity = true; // deja el reposo EXACTO en el centro
+    [SerializeField, Range(0f, 1.5f)] private float antiGravityFactor = 1f; // 1 = cancela totalmente
+
 
 
     public void Stay(Lander lander)
@@ -50,24 +66,56 @@ public class ForceZone : MonoBehaviour, IInteractableStay
 
     private void ApplyRadial(Rigidbody2D rb)
     {
-        if (centerPoint == null)
-            return;
+        if (centerPoint == null) return;
 
-        Vector2 direction = rb.position - (Vector2)centerPoint.position;
-        float distance = direction.magnitude;
+        Vector2 toCenter = (Vector2)centerPoint.position - rb.position;   // hacia el centro
+        float dist = toCenter.magnitude;
+        if (dist > radialRadius) return;
 
-        if (distance > radialRadius)
-            return;
+        // Dirección normalizada y velocidad
+        Vector2 n = dist > 1e-4f ? toCenter / dist : Vector2.up;
+        Vector2 v = rb.linearVelocity;
 
-        float fallOfFactor = radialFallOff.Evaluate(distance / radialRadius);
-        //fallOfFactor = Mathf.Max(fallOfFactor, 0.05f);
-        direction.Normalize();
+        // Falloff [0..1] según tu curva sobre (dist/radio)
+        float t = Mathf.Clamp01(dist / radialRadius);
+        float fall = radialFallOff != null ? Mathf.Clamp01(radialFallOff.Evaluate(t)) : 1f;
 
-        Vector2 force = direction * radialMagnitude * fallOfFactor;
-        if (forcesSO.isAttractive) force = -force;
+        // --- Fuerza tipo muelle (hacia el centro) ---
+        // Nota: usamos 'springK' y modulamos por 'fall' para no pegar tirones lejos.
+        Vector2 Fspring = n * (springK * dist * fall);
 
-        rb.AddForce(force, ForceMode2D.Force);
+        // --- Amortiguamiento radial (proyección de v en n) ---
+        float vRad = Vector2.Dot(v, n);
+        Vector2 FradDamp = -vRad * n * dampingRadial;
+
+        // --- Amortiguamiento tangencial (quita órbitas) ---
+        Vector2 vTan = v - vRad * n;                // componente tangencial
+        Vector2 FtanDamp = -vTan * dampingTangential;
+
+        // --- Anti-gravedad local (opcional) ---
+        Vector2 FantiG = Vector2.zero;
+        if (cancelGlobalGravity)
+        {
+            // Compensa gravedad global * gravityScale del RB
+            Vector2 g = Physics2D.gravity * rb.gravityScale; // (0, -9.81)*0.7
+            FantiG = -g * rb.mass * antiGravityFactor;
+        }
+
+        // --- Extra damping en zona de captura ---
+        Vector2 Fcapture = Vector2.zero;
+        if (dist < captureRadius)
+        {
+            Fcapture = -v * captureDamping; // frena todo (radial + tangencial)
+        }
+
+        // Suma y clamp
+        Vector2 F = Fspring + FradDamp + FtanDamp + FantiG + Fcapture;
+        if (F.sqrMagnitude > maxForce * maxForce)
+            F = F.normalized * maxForce;
+
+        rb.AddForce(F, ForceMode2D.Force);
     }
+
 
     private void OnDrawGizmos()
     {
@@ -81,7 +129,7 @@ public class ForceZone : MonoBehaviour, IInteractableStay
 
     private void ApplyGravity(Rigidbody2D rb)
     {
-        throw new NotImplementedException();
+        rb.gravityScale = gravity;
     }
 
     private void ApplyImpulse(Rigidbody2D rb)

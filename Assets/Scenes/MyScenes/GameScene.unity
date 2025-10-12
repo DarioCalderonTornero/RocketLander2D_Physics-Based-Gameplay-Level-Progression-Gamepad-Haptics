@@ -2471,6 +2471,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4858871409390730377, guid: 302e3f158ec261b42a26be382ddc66a1, type: 3}
+      propertyPath: springK
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858871409390730377, guid: 302e3f158ec261b42a26be382ddc66a1, type: 3}
+      propertyPath: maxForce
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858871409390730377, guid: 302e3f158ec261b42a26be382ddc66a1, type: 3}
+      propertyPath: centerPoint
+      value: 
+      objectReference: {fileID: 1671825586}
+    - target: {fileID: 4858871409390730377, guid: 302e3f158ec261b42a26be382ddc66a1, type: 3}
+      propertyPath: dampingRadial
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858871409390730377, guid: 302e3f158ec261b42a26be382ddc66a1, type: 3}
+      propertyPath: dampingTangential
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5859060211675194411, guid: 302e3f158ec261b42a26be382ddc66a1, type: 3}
       propertyPath: m_Name
       value: RadialForcePrefab
@@ -5149,6 +5169,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1671825586 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7909160231845261078, guid: 302e3f158ec261b42a26be382ddc66a1, type: 3}
+  m_PrefabInstance: {fileID: 716030488}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1688291647
 GameObject:
   m_ObjectHideFlags: 0
@@ -5224,6 +5249,71 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1688291647}
   m_CullTransparentMesh: 1
+--- !u!1001 &1717284057
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3463662154894740704, guid: 42d668078c5b00642b8ec5d47d552e78, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -20.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3463662154894740704, guid: 42d668078c5b00642b8ec5d47d552e78, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 12.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 3463662154894740704, guid: 42d668078c5b00642b8ec5d47d552e78, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3463662154894740704, guid: 42d668078c5b00642b8ec5d47d552e78, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3463662154894740704, guid: 42d668078c5b00642b8ec5d47d552e78, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3463662154894740704, guid: 42d668078c5b00642b8ec5d47d552e78, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3463662154894740704, guid: 42d668078c5b00642b8ec5d47d552e78, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3463662154894740704, guid: 42d668078c5b00642b8ec5d47d552e78, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3463662154894740704, guid: 42d668078c5b00642b8ec5d47d552e78, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3463662154894740704, guid: 42d668078c5b00642b8ec5d47d552e78, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858871409390730377, guid: 42d668078c5b00642b8ec5d47d552e78, type: 3}
+      propertyPath: gravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859060211675194411, guid: 42d668078c5b00642b8ec5d47d552e78, type: 3}
+      propertyPath: m_Name
+      value: GravityForce
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859060211675194411, guid: 42d668078c5b00642b8ec5d47d552e78, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 42d668078c5b00642b8ec5d47d552e78, type: 3}
 --- !u!1 &1735133332
 GameObject:
   m_ObjectHideFlags: 0
@@ -7324,3 +7414,4 @@ SceneRoots:
   - {fileID: 272294813}
   - {fileID: 809406828}
   - {fileID: 716030488}
+  - {fileID: 1717284057}
