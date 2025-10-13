@@ -14,23 +14,23 @@ public class ForceZone : MonoBehaviour, IInteractableStay
     [SerializeField] private Transform centerPoint;
     [SerializeField] private AnimationCurve radialFallOff;
     [SerializeField] private float radialRadius = 5f;
-    [SerializeField] private float gravity;
 
     [Header("Radial Spring-Damper")]
-    [SerializeField] private float springK = 30f;       // rigidez (empuje hacia el centro)
-    [SerializeField] private float dampingRadial = 7f;  // amortiguación en la componente radial
-    [SerializeField] private float dampingTangential = 3f; // amortiguación tangencial (evita órbitas)
-    [SerializeField] private float maxForce = 60f;      // clamp para suavidad
+    [SerializeField] private float springK = 30f;       
+    [SerializeField] private float dampingRadial = 7f;  
+    [SerializeField] private float dampingTangential = 3f; 
+    [SerializeField] private float maxForce = 60f;     
 
     [Header("Capture")]
-    [SerializeField] private float captureRadius = 0.15f;   // zona de “enganche” final
-    [SerializeField] private float captureDamping = 12f;    // extra damping cerca del centro
+    [SerializeField] private float captureRadius = 0.15f;   
+    [SerializeField] private float captureDamping = 12f;    
 
     [Header("Anti-Gravity (opcional)")]
-    [SerializeField] private bool cancelGlobalGravity = true; // deja el reposo EXACTO en el centro
-    [SerializeField, Range(0f, 1.5f)] private float antiGravityFactor = 1f; // 1 = cancela totalmente
+    [SerializeField] private bool cancelGlobalGravity = true; 
+    [SerializeField, Range(0f, 1.5f)] private float antiGravityFactor = 1f; 
 
 
+    [SerializeField] private float gravity;
 
     public void Stay(Lander lander)
     {
@@ -64,51 +64,51 @@ public class ForceZone : MonoBehaviour, IInteractableStay
         }
     }
 
+    // Apply a radial foorce + spring-damper to the Rigidbody2D
     private void ApplyRadial(Rigidbody2D rb)
     {
         if (centerPoint == null) return;
 
-        Vector2 toCenter = (Vector2)centerPoint.position - rb.position;   // hacia el centro
+        Vector2 toCenter = (Vector2)centerPoint.position - rb.position;//To the center
         float dist = toCenter.magnitude;
         if (dist > radialRadius) return;
 
-        // Dirección normalizada y velocidad
+        // Nomralized direction to center (or up if very close)
         Vector2 n = dist > 1e-4f ? toCenter / dist : Vector2.up;
         Vector2 v = rb.linearVelocity;
 
-        // Falloff [0..1] según tu curva sobre (dist/radio)
+        // --- Falloff ---
         float t = Mathf.Clamp01(dist / radialRadius);
         float fall = radialFallOff != null ? Mathf.Clamp01(radialFallOff.Evaluate(t)) : 1f;
 
-        // --- Fuerza tipo muelle (hacia el centro) ---
-        // Nota: usamos 'springK' y modulamos por 'fall' para no pegar tirones lejos.
+        // --- Hooke's law (F = -k*x) ---
         Vector2 Fspring = n * (springK * dist * fall);
 
-        // --- Amortiguamiento radial (proyección de v en n) ---
+        // --- Radial damping ---   
         float vRad = Vector2.Dot(v, n);
         Vector2 FradDamp = -vRad * n * dampingRadial;
 
-        // --- Amortiguamiento tangencial (quita órbitas) ---
-        Vector2 vTan = v - vRad * n;                // componente tangencial
+        // --- Tangential damping ---
+        Vector2 vTan = v - vRad * n;                
         Vector2 FtanDamp = -vTan * dampingTangential;
 
-        // --- Anti-gravedad local (opcional) ---
+        // --- Anti-gravity --- (Opcional)  
         Vector2 FantiG = Vector2.zero;
         if (cancelGlobalGravity)
         {
-            // Compensa gravedad global * gravityScale del RB
-            Vector2 g = Physics2D.gravity * rb.gravityScale; // (0, -9.81)*0.7
+           
+            Vector2 g = Physics2D.gravity * rb.gravityScale; 
             FantiG = -g * rb.mass * antiGravityFactor;
         }
 
-        // --- Extra damping en zona de captura ---
+        // --- Extra damping ---
         Vector2 Fcapture = Vector2.zero;
         if (dist < captureRadius)
         {
-            Fcapture = -v * captureDamping; // frena todo (radial + tangencial)
+            Fcapture = -v * captureDamping; 
         }
 
-        // Suma y clamp
+        // --- Total force ---
         Vector2 F = Fspring + FradDamp + FtanDamp + FantiG + Fcapture;
         if (F.sqrMagnitude > maxForce * maxForce)
             F = F.normalized * maxForce;
@@ -126,10 +126,14 @@ public class ForceZone : MonoBehaviour, IInteractableStay
         }
     }
 
-
+    // Apply a gravity force to the Rigidbody2D
     private void ApplyGravity(Rigidbody2D rb)
     {
-        rb.gravityScale = gravity;
+        Vector2 currentG = Physics2D.gravity * rb.gravityScale;
+        Vector2 desiredG = Physics2D.gravity * gravity;
+
+        Vector2 gravityTotal = desiredG - currentG;
+        rb.AddForce(gravityTotal * rb.mass, ForceMode2D.Force);
     }
 
     private void ApplyImpulse(Rigidbody2D rb)
