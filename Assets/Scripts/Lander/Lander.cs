@@ -52,6 +52,8 @@ public class Lander : MonoBehaviour
         GameOver,
     }
 
+    public float force = 700f;
+
     private State state;
     private Rigidbody2D landerRigidBody2D;
 
@@ -63,7 +65,7 @@ public class Lander : MonoBehaviour
     private bool hasTriggeredLowFuel = false; 
     private const float fuelLowAmount = 0.3f;
 
-    // Deadzone configurable
+    // Controller Deadzone
     private float stickDeadzone = 0.3f;
 
     private void Awake()
@@ -91,7 +93,6 @@ public class Lander : MonoBehaviour
         {
             default:
             case State.WaitingToStart:
-                // --- Input with deadzone ---
 
                 bool isStarted = GameInputs.Instance.IsUpActionPressed();
 
@@ -132,7 +133,6 @@ public class Lander : MonoBehaviour
                 // UP
                 if (thrustUp)
                 {
-                    float force = 700f;
                     landerRigidBody2D.AddForce(force * transform.up * Time.deltaTime);
                     OnUpForce?.Invoke(this, EventArgs.Empty);
                 }
@@ -152,6 +152,16 @@ public class Lander : MonoBehaviour
                     landerRigidBody2D.AddTorque(turnSpeed * Time.deltaTime);
                     OnRightForce?.Invoke(this, EventArgs.Empty);
                 }
+
+                float amplitude = 1.0f;
+                float frequency = 0.5f;
+                float duration = 1.0f;
+
+                if (GetSpeedX() >= 5f || GetSpeedY() >= 5f)
+                {
+                    CameraShake.Instance.Shake(amplitude, frequency, duration);
+                }
+
                 break;
 
             case State.GameOver:
@@ -314,7 +324,15 @@ public class Lander : MonoBehaviour
         }
     }
 
-    
+    private void OnTriggerExit2D(Collider2D collider2D)
+    {
+        if (collider2D.TryGetComponent(out IInteractableExit interactable))
+        {
+            interactable.Exit(this);
+        }
+    }
+
+
     private void SetState(State state)
     {
         this.state = state;

@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using static ForcesSO;
 
-public class ForceZone : MonoBehaviour, IInteractableStay
+public class ForceZone : MonoBehaviour, IInteractableStay, IInteractableExit
 {
     [SerializeField] private ForcesSO forcesSO;
 
@@ -134,6 +134,8 @@ public class ForceZone : MonoBehaviour, IInteractableStay
 
         Vector2 gravityTotal = desiredG - currentG;
         rb.AddForce(gravityTotal * rb.mass, ForceMode2D.Force);
+
+        Lander.Instance.force = 200f;
     }
 
     private void ApplyImpulse(Rigidbody2D rb)
@@ -169,4 +171,8 @@ public class ForceZone : MonoBehaviour, IInteractableStay
         rb.AddForce(forceDirection, ForceMode2D.Force);
     }
 
+    public void Exit(Lander lander)
+    {
+        Lander.Instance.force = 700f;
+    }
 }
