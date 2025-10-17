@@ -129,12 +129,12 @@ TextureImporter:
       name: ring_purple_padded_1024_0
       rect:
         serializedVersion: 2
-        x: 78
-        y: 78
-        width: 868
-        height: 868
+        x: 0
+        y: 0
+        width: 1023
+        height: 1022
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 601b9c02efb8b7342ae79cf6c2ede0fd
     internalID: 0
     vertices: []
     indices: 
