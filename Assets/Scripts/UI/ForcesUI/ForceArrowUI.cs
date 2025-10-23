@@ -37,7 +37,7 @@ public class ForceArrowUI : MonoBehaviour
                 break;
             case ForcesSO.ForceDirection.right:
                 direction = Vector3.right;
-                rotation = Quaternion.Euler(0, 0, 0);
+                rotation = Quaternion.Euler(0, 0, 90);
                 break;
         }
 

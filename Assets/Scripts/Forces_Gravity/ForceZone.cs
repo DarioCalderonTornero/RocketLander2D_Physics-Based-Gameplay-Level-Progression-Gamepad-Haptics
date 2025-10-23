@@ -135,7 +135,8 @@ public class ForceZone : MonoBehaviour, IInteractableStay, IInteractableExit
         Vector2 gravityTotal = desiredG - currentG;
         rb.AddForce(gravityTotal * rb.mass, ForceMode2D.Force);
 
-        Lander.Instance.force = 200f;
+        //Lander.Instance.force = 200f;
+        Time.timeScale = 0.4f;  
     }
 
     private void ApplyImpulse(Rigidbody2D rb)
@@ -174,5 +175,6 @@ public class ForceZone : MonoBehaviour, IInteractableStay, IInteractableExit
     public void Exit(Lander lander)
     {
         Lander.Instance.force = 700f;
+        Time.timeScale = 1f;
     }
 }
