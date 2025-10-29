@@ -66,7 +66,11 @@ The project emphasizes **clean, scalable architecture**, **robust input handling
 ---
 
 ## 📸 Media
-*(Add GIFs or screenshots in a `/Media` or `/Docs` folder, e.g. `Media/rocket_lander.gif`)*
+
+
+
+https://github.com/user-attachments/assets/fee5702a-8f00-4a04-8a36-d976fec5f85f
+
 
 ---
 
