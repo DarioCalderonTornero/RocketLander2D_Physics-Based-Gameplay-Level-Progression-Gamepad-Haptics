@@ -67,7 +67,13 @@ The project emphasizes **clean, scalable architecture**, **robust input handling
 
 ## 📸 Media
 
-🎥 **Gameplay Trailer:**  
+
+
+https://github.com/user-attachments/assets/ad445c30-0951-4b15-a9b5-8f7695268d34
+
+
+
+🎥 **Gameplay:**  
 [![Rocket Lander 2D — YouTube Trailer](https://img.youtube.com/vi/oHB4HZg9Ba4/0.jpg)](https://youtu.be/oHB4HZg9Ba4?si=4fGNrquGjuETPr23)
 
 ---
