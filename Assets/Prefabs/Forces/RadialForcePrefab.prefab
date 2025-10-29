@@ -83,7 +83,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forcesSO: {fileID: 11400000, guid: ef1be28d35a497b438f2e6fb01a4d669, type: 2}
   directionMagnitude: 0
-  radialMagnitude: 10
+  radialMagnitude: 9
   centerPoint: {fileID: 7909160231845261078}
   radialFallOff:
     serializedVersion: 2
@@ -110,6 +110,14 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   radialRadius: 5
+  springK: 5
+  dampingRadial: 1
+  dampingTangential: 1.5
+  maxForce: 10
+  captureRadius: 0.15
+  captureDamping: 12
+  cancelGlobalGravity: 1
+  antiGravityFactor: 1
   gravity: 0
 --- !u!1 &5859060211675194411
 GameObject:

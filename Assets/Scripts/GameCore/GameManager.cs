@@ -90,7 +90,10 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         if (!isTimerActive) return;
-        time += Time.deltaTime; 
+        time += Time.deltaTime;
+
+        if (Input.GetKeyDown(KeyCode.E))
+            GoToNextLevel();
     }
     private void LoadCurrentLevel()
     {
