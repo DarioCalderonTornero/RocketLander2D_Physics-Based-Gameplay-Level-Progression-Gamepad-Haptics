@@ -1198,7 +1198,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6253218097702376787, guid: 705449dc6d737914ea1dabd53f6d450b, type: 3}
       propertyPath: directionMagnitude
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2546846884911126122, guid: 705449dc6d737914ea1dabd53f6d450b, type: 3}

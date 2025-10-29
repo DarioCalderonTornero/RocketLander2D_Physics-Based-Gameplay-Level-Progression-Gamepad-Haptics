@@ -92,8 +92,8 @@ public class GameManager : MonoBehaviour
         if (!isTimerActive) return;
         time += Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.E))
-            GoToNextLevel();
+        //if (Input.GetKeyDown(KeyCode.E))
+            //GoToNextLevel();
     }
     private void LoadCurrentLevel()
     {
