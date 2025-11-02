@@ -95,4 +95,4 @@ https://github.com/user-attachments/assets/ad445c30-0951-4b15-a9b5-8f7695268d34
 
 ## 👤 Author
 **Darío Calderón Tornero** — 2D/3D Videogame Programmer (Unity)  
-Portfolio · Itch.io · LinkedIn · GitHub
+Portfolio / GitHub
